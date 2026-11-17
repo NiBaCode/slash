@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Portfolio photos · SLASH · The Notorious RGB</title>
-<meta name="description" content="5 ChatGPT codes that turn rough photos of your design work into portfolio shots. Paste the setup once, then drop an image and type a code.">
+<meta name="description" content="6 ChatGPT codes that turn rough photos of your design work into portfolio shots. Paste the setup once, then drop an image and type a code.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -65,7 +65,7 @@
 <main>
   <p class="kicker">SLASH #01 · ChatGPT codes for designers</p>
   <h1>Portfolio photos, <em>one slash away.</em></h1>
-  <p class="lead">5 codes that turn rough photos of your work into portfolio shots. ChatGPT doesn't know them out of the box: the setup below teaches it what each one means. Paste it once, then drop an image and type a code.</p>
+  <p class="lead">6 codes that turn rough photos of your work into portfolio shots. ChatGPT doesn't know them out of the box: the setup below teaches it what each one means. Paste it once, then drop an image and type a code.</p>
 
   <h2>How it works</h2>
   <ol class="steps">
@@ -82,6 +82,7 @@
 
 GLOBAL RULE (applies to every code): keep my artwork, text, logos and face EXACTLY as they are: same layout, same letters, same colors, nothing added or redrawn. Don't add any props, logos or branding that aren't in my image. Always return a 4:5 portrait image. Always use image generation, never code or cropping. If something can't be kept identical, tell me instead of inventing it.
 
+/facelock = I upload a photo of me. Fix only the quality: exposure, color balance, sharpness and noise. Face shape, eyes, nose, mouth, skin texture, moles, age, expression, hair, pose and background stay exactly the same. Never beautify or reshape. Keep the original framing.
 /scan = I upload a phone photo of a printed piece. Return a flat, straight-on scan: perspective corrected, cropped to the piece, even light, no shadows or glare, original paper texture kept.
 /studio = I upload a photo of an object I designed. Return a studio product shot of the same object: seamless neutral background, soft key light, gentle shadow.
 /wall [place] = I upload a graphic. Return a documentary photo of it printed and pasted in a real place (default: a city wall), natural daylight, slight paper wrinkles.
@@ -90,11 +91,19 @@ GLOBAL RULE (applies to every code): keep my artwork, text, logos and face EXACT
 
 Anything I write after the code is an extra note for that edit.</pre>
 
-  <h2>The 5 codes</h2>
+  <h2>The 6 codes</h2>
   <p class="use" style="margin:-4px 0 28px">Drag the yellow line to compare. Every “after” below is a real ChatGPT result from our test, not a mockup.</p>
 
+  <section class="code" aria-labelledby="c0">
+    <div class="code-top"><span class="num">01 / 06</span><button type="button" class="ghost" data-copy-text="/facelock">Copy /facelock</button></div>
+    <h3 id="c0">/facelock</h3>
+    <p>Fixes a bad photo of you (color, light, sharpness) without touching your face. No new nose, no new jaw.</p>
+    <p class="use">Use it for: the photo you like but that came out washed, dark or blurry. Start here.</p>
+    <div class="ba"><img src="img/facelock-before.jpg" alt="Before: a washed-out selfie with a pink color cast" loading="lazy"><img class="after" src="img/facelock-after.jpg" alt="After: the same selfie with natural color and sharper detail, same face, same room" loading="lazy"><span class="bar"></span><span class="tag b">Before</span><span class="tag a">After</span><input type="range" min="0" max="100" value="50" aria-label="Compare before and after for /facelock"></div>
+  </section>
+
   <section class="code" aria-labelledby="c1">
-    <div class="code-top"><span class="num">01 / 05</span><button type="button" class="ghost" data-copy-text="/scan">Copy /scan</button></div>
+    <div class="code-top"><span class="num">02 / 06</span><button type="button" class="ghost" data-copy-text="/scan">Copy /scan</button></div>
     <h3 id="c1">/scan</h3>
     <p>A crooked phone photo of your printed poster becomes a flat, straight scan.</p>
     <p class="use">Use it for: posters, covers, prints you only have as a phone photo.</p>
@@ -102,7 +111,7 @@ Anything I write after the code is an extra note for that edit.</pre>
   </section>
 
   <section class="code" aria-labelledby="c2">
-    <div class="code-top"><span class="num">02 / 05</span><button type="button" class="ghost" data-copy-text="/studio">Copy /studio</button></div>
+    <div class="code-top"><span class="num">03 / 06</span><button type="button" class="ghost" data-copy-text="/studio">Copy /studio</button></div>
     <h3 id="c2">/studio</h3>
     <p>Something you designed, shot on the kitchen counter, becomes a clean studio product shot.</p>
     <p class="use">Use it for: packaging, labels, merch, books, business cards.</p>
@@ -110,7 +119,7 @@ Anything I write after the code is an extra note for that edit.</pre>
   </section>
 
   <section class="code" aria-labelledby="c3">
-    <div class="code-top"><span class="num">03 / 05</span><button type="button" class="ghost" data-copy-text="/wall">Copy /wall</button></div>
+    <div class="code-top"><span class="num">04 / 06</span><button type="button" class="ghost" data-copy-text="/wall">Copy /wall</button></div>
     <h3 id="c3">/wall <small>[place]</small></h3>
     <p>Your poster file, printed and pasted on a real wall.</p>
     <p class="use">Use it for: posters and flyers that never got printed. Try <code>/wall bus stop</code> or <code>/wall shop window</code>.</p>
@@ -118,7 +127,7 @@ Anything I write after the code is an extra note for that edit.</pre>
   </section>
 
   <section class="code" aria-labelledby="c4">
-    <div class="code-top"><span class="num">04 / 05</span><button type="button" class="ghost" data-copy-text="/screen">Copy /screen</button></div>
+    <div class="code-top"><span class="num">05 / 06</span><button type="button" class="ghost" data-copy-text="/screen">Copy /screen</button></div>
     <h3 id="c4">/screen <small>[device]</small></h3>
     <p>A flat screenshot of your site becomes a moody device shot.</p>
     <p class="use">Use it for: websites and apps. Default is a phone; for desktop sites type <code>/screen laptop</code>.</p>
@@ -126,7 +135,7 @@ Anything I write after the code is an extra note for that edit.</pre>
   </section>
 
   <section class="code" aria-labelledby="c5">
-    <div class="code-top"><span class="num">05 / 05</span><button type="button" class="ghost" data-copy-text="/headshot">Copy /headshot</button></div>
+    <div class="code-top"><span class="num">06 / 06</span><button type="button" class="ghost" data-copy-text="/headshot">Copy /headshot</button></div>
     <h3 id="c5">/headshot</h3>
     <p>A random selfie becomes a portrait for your About page. Same face.</p>
     <p class="use">Use it for: About pages, speaker bios, LinkedIn.</p>

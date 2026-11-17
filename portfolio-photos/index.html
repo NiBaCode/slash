@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio photos · SLASH · The Notorious RGB</title>
+<meta name="description" content="5 ChatGPT codes that turn rough photos of your design work into portfolio shots. Paste the setup once, then drop an image and type a code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --void: #090A0C; --panel: #15161A; --line: #2B2C32; --bone: #EEE9DF; --silver: #A3A3A3; --yellow: #FFB000; }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { background: var(--void); color-scheme: dark; }
+  body { margin: 0; color: var(--bone); background: var(--void); overflow-x: clip; font: 400 17px/1.55 "Space Grotesk", system-ui, sans-serif; }
+  main, footer { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  main { padding-top: 40px; }
+  a { color: var(--yellow); }
+  .kicker { margin: 0 0 10px; color: var(--yellow); font-weight: 700; letter-spacing: .08em; font-size: 14px; text-transform: uppercase; }
+  h1 { margin: 0; font-size: clamp(40px, 11vw, 68px); line-height: 1; letter-spacing: -0.03em; }
+  h1 em { font-style: normal; color: var(--yellow); }
+  .lead { margin: 16px 0 0; color: var(--silver); font-size: 19px; max-width: 34em; }
+  h2 { margin: 64px 0 16px; font-size: 26px; letter-spacing: -0.01em; }
+  .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; counter-reset: s; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: start; padding: 18px; background: var(--panel); border-radius: 18px; }
+  .steps li::before { content: counter(s); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--yellow); color: var(--void); font-weight: 700; }
+  .steps strong { display: block; }
+  .steps span { color: var(--silver); }
+  button { font: 700 16px "Space Grotesk", sans-serif; color: var(--void); background: var(--yellow); border: 0; border-radius: 999px; padding: 12px 20px; min-height: 44px; cursor: pointer; }
+  button.ghost { background: transparent; color: var(--bone); border: 1px solid var(--line); font-weight: 500; }
+  button:focus-visible, input:focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; }
+  .block-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 24px 0 12px; }
+  .block-head p { margin: 0; color: var(--silver); font-size: 16px; }
+  pre { margin: 0; padding: 20px; border-radius: 18px; background: var(--panel); border: 1px solid var(--line); white-space: pre-wrap; word-break: break-word; font: 400 16px/1.6 ui-monospace, "Cascadia Code", Consolas, monospace; color: var(--bone); max-height: 420px; overflow-y: auto; }
+
+  .code { margin: 0 0 56px; }
+  .code-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .code-top .num { color: var(--silver); font-size: 16px; font-weight: 500; }
+  .code h3 { margin: 4px 0 0; font-size: clamp(34px, 9vw, 48px); line-height: 1.05; letter-spacing: -0.02em; color: var(--yellow); font-weight: 700; }
+  .code h3 small { color: var(--silver); font-size: .5em; font-weight: 500; letter-spacing: 0; }
+  .code p { margin: 10px 0 16px; }
+  .code .use { color: var(--silver); font-size: 16px; margin-top: -8px; }
+
+  /* before / after */
+  .ba { position: relative; aspect-ratio: 4 / 5; border-radius: 18px; overflow: hidden; background: var(--panel); user-select: none; touch-action: pan-y; }
+  .ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ba .after { clip-path: inset(0 0 0 var(--p, 50%)); }
+  .ba .bar { position: absolute; top: 0; bottom: 0; left: var(--p, 50%); width: 2px; margin-left: -1px; background: var(--yellow); pointer-events: none; }
+  .ba .bar::after { content: "⟷"; position: absolute; top: 50%; left: 50%; translate: -50% -50%; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--yellow); color: var(--void); font-size: 20px; font-weight: 700; }
+  .ba .tag { position: absolute; top: 12px; padding: 4px 10px; border-radius: 999px; background: rgba(9,10,12,.75); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+  .ba .tag.b { left: 12px; } .ba .tag.a { right: 12px; color: var(--yellow); }
+  .ba input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+
+  .limits { padding-left: 22px; } .limits li { margin: 0 0 12px; color: var(--silver); } .limits strong { color: var(--bone); }
+  .follow { margin: 64px 0 0; padding: 28px; border-radius: 22px; background: var(--yellow); color: var(--void); }
+  .follow h2 { margin: 0 0 8px; } .follow p { margin: 0 0 18px; }
+  .follow a { display: inline-flex; align-items: center; min-height: 44px; padding: 12px 22px; border-radius: 999px; background: var(--void); color: var(--bone); text-decoration: none; font-weight: 700; }
+  footer { margin-top: 48px; padding-top: 24px; padding-bottom: 40px; border-top: 1px solid var(--line); color: var(--silver); font-size: 15px; }
+  footer p { margin: 0 0 8px; }
+  .toast { position: fixed; left: 50%; bottom: 24px; translate: -50% 0; padding: 12px 18px; border-radius: 999px; background: var(--bone); color: var(--void); font-weight: 700; }
+  @media (prefers-reduced-motion: no-preference) { .toast { animation: up .25s ease-out; } @keyframes up { from { translate: -50% 12px; opacity: 0; } } }
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker">SLASH #01 · ChatGPT codes for designers</p>
+  <h1>Portfolio photos, <em>one slash away.</em></h1>
+  <p class="lead">5 codes that turn rough photos of your work into portfolio shots. ChatGPT doesn't know them out of the box: the setup below teaches it what each one means. Paste it once, then drop an image and type a code.</p>
+
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><div><strong>Paste the setup</strong><span>Quick: as the first message of a new chat (works for that chat). Permanent: in the instructions of a ChatGPT Project, so every chat inside it knows the codes.</span></div></li>
+    <li><div><strong>Drop an image + type a code</strong><span>Typing “/” opens ChatGPT's own menu. Keep typing, it closes and your code stays.</span></div></li>
+    <li><div><strong>Add a word if you want</strong><span>Anything after the code is a note: <code>/screen laptop</code>, <code>/wall bus stop</code>.</span></div></li>
+  </ol>
+
+  <div class="block-head">
+    <p>The setup block</p>
+    <button type="button" data-copy="setup">Copy setup</button>
+  </div>
+<pre id="setup" tabindex="0" aria-label="Setup block">You are my portfolio photo assistant. When I send an image with a code starting with "/", apply the matching edit below and return the edited image. No questions, no explanations.
+
+GLOBAL RULE (applies to every code): keep my artwork, text, logos and face EXACTLY as they are: same layout, same letters, same colors, nothing added or redrawn. Don't add any props, logos or branding that aren't in my image. Always return a 4:5 portrait image. Always use image generation, never code or cropping. If something can't be kept identical, tell me instead of inventing it.
+
+/scan = I upload a phone photo of a printed piece. Return a flat, straight-on scan: perspective corrected, cropped to the piece, even light, no shadows or glare, original paper texture kept.
+/studio = I upload a photo of an object I designed. Return a studio product shot of the same object: seamless neutral background, soft key light, gentle shadow.
+/wall [place] = I upload a graphic. Return a documentary photo of it printed and pasted in a real place (default: a city wall), natural daylight, slight paper wrinkles.
+/screen [device] = I upload a screenshot. Return the device (default: a phone) held in one hand in a dark room, cinematic low-key light, the screenshot shown on the screen pixel-exact.
+/headshot = I upload a selfie. Return an editorial portrait for an About page: same face and features, soft window light, plain background.
+
+Anything I write after the code is an extra note for that edit.</pre>
+
+  <h2>The 5 codes</h2>
+  <p class="use" style="margin:-4px 0 28px">Drag the yellow line to compare. Every “after” below is a real ChatGPT result from our test, not a mockup.</p>
+
+  <section class="code" aria-labelledby="c1">
+    <div class="code-top"><span class="num">01 / 05</span><button type="button" class="ghost" data-copy-text="/scan">Copy /scan</button></div>
+    <h3 id="c1">/scan</h3>
+    <p>A crooked phone photo of your printed poster becomes a flat, straight scan.</p>
+    <p class="use">Use it for: posters, covers, prints you only have as a phone photo.</p>
+    <div class="ba"><img src="img/scan-before.jpg" alt="Before: phone photo of a screen-printed poster pinned to a wooden board, slightly tilted" loading="lazy"><img class="after" src="img/scan-after.jpg" alt="After: the same poster as a flat, straight scan" loading="lazy"><span class="bar"></span><span class="tag b">Before</span><span class="tag a">After</span><input type="range" min="0" max="100" value="50" aria-label="Compare before and after for /scan"></div>
+  </section>
+
+  <section class="code" aria-labelledby="c2">
+    <div class="code-top"><span class="num">02 / 05</span><button type="button" class="ghost" data-copy-text="/studio">Copy /studio</button></div>
+    <h3 id="c2">/studio</h3>
+    <p>Something you designed, shot on the kitchen counter, becomes a clean studio product shot.</p>
+    <p class="use">Use it for: packaging, labels, merch, books, business cards.</p>
+    <div class="ba"><img src="img/studio-before.jpg" alt="Before: a crumpled printed coffee pouch on a granite counter" loading="lazy"><img class="after" src="img/studio-after.jpg" alt="After: the same pouch on a seamless light background with a soft shadow" loading="lazy"><span class="bar"></span><span class="tag b">Before</span><span class="tag a">After</span><input type="range" min="0" max="100" value="50" aria-label="Compare before and after for /studio"></div>
+  </section>
+
+  <section class="code" aria-labelledby="c3">
+    <div class="code-top"><span class="num">03 / 05</span><button type="button" class="ghost" data-copy-text="/wall">Copy /wall</button></div>
+    <h3 id="c3">/wall <small>[place]</small></h3>
+    <p>Your poster file, printed and pasted on a real wall.</p>
+    <p class="use">Use it for: posters and flyers that never got printed. Try <code>/wall bus stop</code> or <code>/wall shop window</code>.</p>
+    <div class="ba"><img src="img/wall-before.jpg" alt="Before: the digital poster Cold Swell" loading="lazy"><img class="after" src="img/wall-after.jpg" alt="After: the Cold Swell poster pasted on a weathered wall with paper wrinkles" loading="lazy"><span class="bar"></span><span class="tag b">Before</span><span class="tag a">After</span><input type="range" min="0" max="100" value="50" aria-label="Compare before and after for /wall"></div>
+  </section>
+
+  <section class="code" aria-labelledby="c4">
+    <div class="code-top"><span class="num">04 / 05</span><button type="button" class="ghost" data-copy-text="/screen">Copy /screen</button></div>
+    <h3 id="c4">/screen <small>[device]</small></h3>
+    <p>A flat screenshot of your site becomes a moody device shot.</p>
+    <p class="use">Use it for: websites and apps. Default is a phone; for desktop sites type <code>/screen laptop</code>.</p>
+    <div class="ba"><img src="img/screen-before.jpg" alt="Before: desktop screenshot of the Render Club Berlin site" loading="lazy"><img class="after" src="img/screen-after.jpg" alt="After: the same site on a laptop on a desk in a dark room" loading="lazy"><span class="bar"></span><span class="tag b">Before</span><span class="tag a">After</span><input type="range" min="0" max="100" value="50" aria-label="Compare before and after for /screen"></div>
+  </section>
+
+  <section class="code" aria-labelledby="c5">
+    <div class="code-top"><span class="num">05 / 05</span><button type="button" class="ghost" data-copy-text="/headshot">Copy /headshot</button></div>
+    <h3 id="c5">/headshot</h3>
+    <p>A random selfie becomes a portrait for your About page. Same face.</p>
+    <p class="use">Use it for: About pages, speaker bios, LinkedIn.</p>
+    <div class="ba"><img src="img/headshot-before.jpg" alt="Before: a close-up selfie in a messy room" loading="lazy"><img class="after" src="img/headshot-after.jpg" alt="After: the same man in a clean portrait with soft light and a plain background" loading="lazy"><span class="bar"></span><span class="tag b">Before</span><span class="tag a">After</span><input type="range" min="0" max="100" value="50" aria-label="Compare before and after for /headshot"></div>
+  </section>
+
+  <h2>Tips &amp; limits</h2>
+  <ul class="limits">
+    <li><strong>Check small text before you post.</strong> These are generated images. In our test /scan kept the poster but changed its date from “Sept 19” to “Sept 10”. Big titles held up, tiny lines can change.</li>
+    <li><strong>If it only crops,</strong> ChatGPT used code instead of image generation. Add a note: <code>/studio use image generation</code>.</li>
+    <li><strong>Start from the sharpest image you have.</strong> The code can fix light and angle, not missing detail.</li>
+    <li><strong>Image limits depend on your ChatGPT plan.</strong> We ran these tests on ChatGPT Go.</li>
+    <li><strong>Label it honestly.</strong> A /wall or /screen shot is a mockup, not a photo of a real print or launch.</li>
+  </ul>
+
+  <div class="follow">
+    <h2>More codes are coming</h2>
+    <p>SLASH is a series of ChatGPT codes for designers. Next sets: client work, branding, UI copy.</p>
+    <a href="https://www.instagram.com/thenotorious.rgb/">Follow @thenotorious.rgb</a>
+  </div>
+</main>
+<footer>
+  <p>Made by The Notorious RGB. Codes tested on 17 Nov 2026.</p>
+  <p>Before photos: Andrew Bird poster by -ep-, coffee pouch by Infrogmation, selfie by orsorama, all <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>, via Openverse. The Cold Swell poster and the Render Club Berlin site are our designs.</p>
+</footer>
+<div class="toast" role="status" aria-live="polite" hidden></div>
+<script>
+  const toast = document.querySelector('.toast'); let t;
+  const say = m => { toast.textContent = m; toast.hidden = false; clearTimeout(t); t = setTimeout(() => toast.hidden = true, 1600); };
+  async function copy(text, label) {
+    try { await navigator.clipboard.writeText(text); }
+    catch { const a = document.createElement('textarea'); a.value = text; document.body.append(a); a.select(); document.execCommand('copy'); a.remove(); }
+    say(label + ' copied');
+  }
+  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => copy(document.getElementById(b.dataset.copy).textContent, 'Setup')));
+  document.querySelectorAll('[data-copy-text]').forEach(b => b.addEventListener('click', () => copy(b.dataset.copyText, b.dataset.copyText)));
+  document.querySelectorAll('.ba').forEach(ba => { const r = ba.querySelector('input'); const set = () => ba.style.setProperty('--p', r.value + '%'); r.addEventListener('input', set); set(); });
+</script>
+</body>
+</html>

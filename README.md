@@ -1,6 +1,6 @@
 # SLASH
 
-ChatGPT codes for designers, from the SLASH series on [@thenotorious.rgb](https://www.instagram.com/thenotorious.rgb/). Paste the setup once, then a slash and a word does the rest. Every code is tested before it gets here.
+ChatGPT codes for designers, from the SLASH series on [@thenotorious.rgb](https://www.instagram.com/thenotorious.rgb/). Paste the setup, then a slash and a word does the rest. Every code is tested before it gets here.
 
 **Open it:** https://nibacode.github.io/slash/
 

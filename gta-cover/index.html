@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTA cover · SLASH · The Notorious RGB</title>
+<meta name="description" content="4 ChatGPT codes that turn your brand, your face and your city into crime-game cover art, parody style. Paste the setup, then type a code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --void: #090A0C; --panel: #15161A; --line: #2B2C32; --bone: #EEE9DF; --silver: #A3A3A3; --yellow: #FFB000; }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { background: var(--void); color-scheme: dark; }
+  body { margin: 0; color: var(--bone); background: var(--void); overflow-x: clip; font: 400 17px/1.55 "Space Grotesk", system-ui, sans-serif; }
+  main, footer { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  main { padding-top: 40px; }
+  a { color: var(--yellow); }
+  .kicker { margin: 0 0 10px; color: var(--yellow); font-weight: 700; letter-spacing: .08em; font-size: 14px; text-transform: uppercase; }
+  h1 { margin: 0; font-size: clamp(40px, 11vw, 68px); line-height: 1; letter-spacing: -0.03em; }
+  h1 em { font-style: normal; color: var(--yellow); }
+  .lead { margin: 16px 0 0; color: var(--silver); font-size: 19px; max-width: 34em; }
+  h2 { margin: 64px 0 16px; font-size: 26px; letter-spacing: -0.01em; }
+  .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; counter-reset: s; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: start; padding: 18px; background: var(--panel); border-radius: 18px; }
+  .steps li::before { content: counter(s); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--yellow); color: var(--void); font-weight: 700; }
+  .steps strong { display: block; }
+  .steps span { color: var(--silver); }
+  button { font: 700 16px "Space Grotesk", sans-serif; color: var(--void); background: var(--yellow); border: 0; border-radius: 999px; padding: 12px 20px; min-height: 44px; cursor: pointer; }
+  button.ghost { background: transparent; color: var(--bone); border: 1px solid var(--line); font-weight: 500; }
+  button:focus-visible, input:focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; }
+  .block-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 24px 0 12px; }
+  .block-head p { margin: 0; color: var(--silver); font-size: 16px; }
+  pre { margin: 0; padding: 20px; border-radius: 18px; background: var(--panel); border: 1px solid var(--line); white-space: pre-wrap; word-break: break-word; font: 400 16px/1.6 ui-monospace, "Cascadia Code", Consolas, monospace; color: var(--bone); max-height: 420px; overflow-y: auto; }
+
+  .code { margin: 0 0 56px; }
+  .code-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .code-top .num { color: var(--silver); font-size: 16px; font-weight: 500; }
+  .code h3 { margin: 4px 0 0; font-size: clamp(34px, 9vw, 48px); line-height: 1.05; letter-spacing: -0.02em; color: var(--yellow); font-weight: 700; }
+  .code h3 small { color: var(--silver); font-size: .5em; font-weight: 500; letter-spacing: 0; }
+  .code p { margin: 10px 0 16px; }
+  .code .use { color: var(--silver); font-size: 16px; margin-top: -8px; }
+
+  /* before / after */
+  .ba { position: relative; aspect-ratio: 4 / 5; border-radius: 18px; overflow: hidden; background: var(--panel); user-select: none; touch-action: pan-y; }
+  .ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ba .after { clip-path: inset(0 0 0 var(--p, 50%)); }
+  .ba .bar { position: absolute; top: 0; bottom: 0; left: var(--p, 50%); width: 2px; margin-left: -1px; background: var(--yellow); pointer-events: none; }
+  .ba .bar::after { content: "⟷"; position: absolute; top: 50%; left: 50%; translate: -50% -50%; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--yellow); color: var(--void); font-size: 20px; font-weight: 700; }
+  .ba .tag { position: absolute; top: 12px; padding: 4px 10px; border-radius: 999px; background: rgba(9,10,12,.75); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+  .ba .tag.b { left: 12px; } .ba .tag.a { right: 12px; color: var(--yellow); }
+  .ba input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+
+  .solo { aspect-ratio: 4 / 5; border-radius: 18px; overflow: hidden; background: #000; } .solo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .follow p a { display: inline; min-height: 0; padding: 0; background: none; color: var(--void); text-decoration: underline; font-weight: 700; }
+  .limits { padding-left: 22px; } .limits li { margin: 0 0 12px; color: var(--silver); } .limits strong { color: var(--bone); }
+  .follow { margin: 64px 0 0; padding: 28px; border-radius: 22px; background: var(--yellow); color: var(--void); }
+  .follow h2 { margin: 0 0 8px; } .follow p { margin: 0 0 18px; }
+  .follow a { display: inline-flex; align-items: center; min-height: 44px; padding: 12px 22px; border-radius: 999px; background: var(--void); color: var(--bone); text-decoration: none; font-weight: 700; }
+  footer { margin-top: 48px; padding-top: 24px; padding-bottom: 40px; border-top: 1px solid var(--line); color: var(--silver); font-size: 15px; }
+  footer p { margin: 0 0 8px; }
+  .toast { position: fixed; left: 50%; bottom: 24px; translate: -50% 0; padding: 12px 18px; border-radius: 999px; background: var(--bone); color: var(--void); font-weight: 700; }
+  @media (prefers-reduced-motion: no-preference) { .toast { animation: up .25s ease-out; } @keyframes up { from { translate: -50% 12px; opacity: 0; } } }
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker">SLASH #02 · ChatGPT codes for designers</p>
+  <h1>Turn your brand into a <em>GTA 6 cover.</em></h1>
+  <p class="lead">Every brand is posting one this week. These 4 codes make yours: the cover grid, you as the character, your city as a loading screen, your title. It's a parody: no real game logo, no official characters. ChatGPT doesn't know the codes out of the box, so paste the setup first.</p>
+
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><div><strong>Paste the setup</strong><span>Quick: as the first message of a new chat (works for that chat). Permanent: in the instructions of a ChatGPT Project, so every chat inside it knows the codes.</span></div></li>
+    <li><div><strong>Drop an image + type a code</strong><span>Typing “/” opens ChatGPT's own menu. Keep typing, it closes and your code stays.</span></div></li>
+    <li><div><strong>Add a word</strong><span>The word after the code goes into the image: <code>/gtacover Notorious</code> wrote “Grand Notorious Auto”, <code>/gtacity Milano</code> tagged the city.</span></div></li>
+  </ol>
+
+  <div class="block-head">
+    <p>The setup block</p>
+    <button type="button" data-copy="setup">Copy setup</button>
+  </div>
+<pre id="setup" tabindex="0" aria-label="Setup block">You are my crime-game cover artist. When I send a code starting with "/", make the matching image below and return it. No questions, no explanations.
+
+GLOBAL RULE (applies to every code): this is a PARODY in the style of modern open-world crime-game cover art: hand-painted illustration, bold outlines, saturated sunset palette (hot pink, orange, teal, purple), strong rim light, Miami-style heat. Never use the real Rockstar logo, the real "Grand Theft Auto" or GTA logo, or any official character, car or screenshot from the game. Keep my logo, my product and my face recognizable: same shapes, same colors, same features. Don't add statues, landmarks or props that aren't in my photo or my brief. Spell every word exactly as I write it. Always return a 4:5 portrait image (1024x1280), never square or 3:4. Always use image generation, never code.
+
+/gtacover [brand] = I upload my logo or a product. Return a cover poster: a grid of 6 to 8 slightly tilted painted panels with thin black gutters, each panel a scene from my brand's world (the product, the team, the customers, the city), my logo shown clearly in one panel, and a title panel at the bottom that says "GRAND [BRAND] AUTO".
+/gtame [role] = I upload a photo of me. Return me as a painted cover-art character in one tall panel: same face, hair, glasses and clothes, confident pose, sunset city behind me (default role: the designer).
+/gtacity [place] = I upload a photo of a place. Return it as a painted loading-screen illustration: same buildings, streets and landmarks, golden-hour light, palm trees only if they fit the place.
+/gtatitle [word] = Return a title lockup on a plain dark background: "GRAND", "[WORD]", "AUTO" stacked, heavy condensed letters with a black outline, plus a big Roman numeral of my choice (default VI) in a pink-to-orange gradient. Draw it new, not a copy of the real game logo.
+
+Anything I write after the code is an extra note for that image.</pre>
+
+  <h2>The 4 codes</h2>
+  <p class="use" style="margin:-4px 0 28px">Drag the yellow line to compare. Every “after” below is a real ChatGPT result from our test, not a mockup.</p>
+
+  <section class="code" aria-labelledby="c0">
+    <div class="code-top"><span class="num">01 / 04</span><button type="button" class="ghost" data-copy-text="/gtacover">Copy /gtacover</button></div>
+    <h3 id="c0">/gtacover <small>[brand]</small></h3>
+    <p>Your logo in, a full cover grid out: your product, your people, your city, your name in the title. This is our logo: three bars, nothing else.</p>
+    <p class="use">Use it for: the trend post for your brand or a client.</p>
+    <div class="ba"><img src="img/cover-before.jpg" alt="Before: the TNR logo, three vertical bars in red, green and blue on white" loading="lazy"><img class="after" src="img/cover-after.jpg" alt="After: a painted cover grid with the three bars on a billboard, a monitor, a laptop and a jacket, and the title Grand Notorious Auto" loading="lazy"><span class="bar"></span><span class="tag b">Before</span><span class="tag a">After</span><input type="range" min="0" max="100" value="50" aria-label="Compare before and after for /gtacover"></div>
+  </section>
+
+  <section class="code" aria-labelledby="c1">
+    <div class="code-top"><span class="num">02 / 04</span><button type="button" class="ghost" data-copy-text="/gtame">Copy /gtame</button></div>
+    <h3 id="c1">/gtame <small>[role]</small></h3>
+    <p>A photo of you becomes the cover character. Same cap, same glasses, same jacket. That&rsquo;s me, at a café.</p>
+    <p class="use">Use it for: your profile pic this week, the team page, a client&rsquo;s founder. Add a role: <code>/gtame the art director</code>.</p>
+    <div class="ba"><img src="img/me-before.jpg" alt="Before: phone photo of Nico at a café table behind a laptop" loading="lazy"><img class="after" src="img/me-after.jpg" alt="After: Nico painted as a cover character with the same cap, sunglasses and jacket, palm trees and a sunset skyline behind" loading="lazy"><span class="bar"></span><span class="tag b">Before</span><span class="tag a">After</span><input type="range" min="0" max="100" value="50" aria-label="Compare before and after for /gtame"></div>
+  </section>
+
+  <section class="code" aria-labelledby="c2">
+    <div class="code-top"><span class="num">03 / 04</span><button type="button" class="ghost" data-copy-text="/gtacity">Copy /gtacity</button></div>
+    <h3 id="c2">/gtacity <small>[place]</small></h3>
+    <p>A foggy night photo of a street becomes a sunset loading screen. Same canal, same cars, same boat.</p>
+    <p class="use">Use it for: local brands, studios, events. The place name helps: <code>/gtacity Milano</code>.</p>
+    <div class="ba"><img src="img/city-before.jpg" alt="Before: foggy night photo of the Navigli canal in Milan with parked cars and a boat" loading="lazy"><img class="after" src="img/city-after.jpg" alt="After: the same canal painted at sunset in pink and orange, with a Milano tag on the wall" loading="lazy"><span class="bar"></span><span class="tag b">Before</span><span class="tag a">After</span><input type="range" min="0" max="100" value="50" aria-label="Compare before and after for /gtacity"></div>
+  </section>
+
+  <section class="code" aria-labelledby="c3">
+    <div class="code-top"><span class="num">04 / 04</span><button type="button" class="ghost" data-copy-text="/gtatitle">Copy /gtatitle</button></div>
+    <h3 id="c3">/gtatitle <small>[word]</small></h3>
+    <p>No image needed. One word in, the title lockup out. Put it on top of the other three.</p>
+    <p class="use">Use it for: covers, stories, the first slide of a carousel. Type <code>/gtatitle DESIGN</code>.</p>
+    <div class="solo"><img src="img/title-after.jpg" alt="Title lockup: Grand Design Auto stacked in white letters with a black outline, and a big VI with a sunset inside" loading="lazy"></div>
+  </section>
+
+  <h2>Tips &amp; limits</h2>
+  <ul class="limits">
+    <li><strong>It adds things.</strong> In our first test /gtacover put a statue in one panel and /gtacity added the Duomo, which you can&rsquo;t see from that canal. The setup now asks it not to, but check before you post.</li>
+    <li><strong>Small text comes out scrambled.</strong> Big words (your title, your brand) were spelled right. License plates in the background weren&rsquo;t.</li>
+    <li><strong>Logos on your clothes stay.</strong> /gtame kept the brands on my cap, shirt and laptop, even when we asked it to swap them. Pick a photo without other brands, or crop them out.</li>
+    <li><strong>The face stays close, not the same.</strong> It&rsquo;s a painting of you: the features hold up, small details shift (it gave me a ring I don&rsquo;t wear).</li>
+    <li><strong>Keep it a parody.</strong> Don&rsquo;t paste the real game logo or characters on top. /gtatitle draws a new lockup, but it lands close to the original: on a client post, check with them first.</li>
+    <li><strong>Image limits depend on your ChatGPT plan.</strong> We ran these tests on ChatGPT Go: 5 images in total.</li>
+  </ul>
+
+  <div class="follow">
+    <h2>More codes are coming</h2>
+    <p>SLASH is a series of ChatGPT codes for designers. Missed #01? <a href="../portfolio-photos/">Portfolio photos</a>.</p>
+    <a href="https://www.instagram.com/thenotorious.rgb/">Follow @thenotorious.rgb</a>
+  </div>
+</main>
+<footer>
+  <p>Made by The Notorious RGB. Codes tested on 20 Nov 2026. A parody: not affiliated with Rockstar Games or Grand Theft Auto.</p>
+  <p>/gtame photo: Nico, behind TNR. Navigli photo by opethpainter, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>, via Wikimedia Commons.</p>
+</footer>
+<div class="toast" role="status" aria-live="polite" hidden></div>
+<script>
+  const toast = document.querySelector('.toast'); let t;
+  const say = m => { toast.textContent = m; toast.hidden = false; clearTimeout(t); t = setTimeout(() => toast.hidden = true, 1600); };
+  async function copy(text, label) {
+    try { await navigator.clipboard.writeText(text); }
+    catch { const a = document.createElement('textarea'); a.value = text; document.body.append(a); a.select(); document.execCommand('copy'); a.remove(); }
+    say(label + ' copied');
+  }
+  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => copy(document.getElementById(b.dataset.copy).textContent, 'Setup')));
+  document.querySelectorAll('[data-copy-text]').forEach(b => b.addEventListener('click', () => copy(b.dataset.copyText, b.dataset.copyText)));
+  document.querySelectorAll('.ba').forEach(ba => { const r = ba.querySelector('input'); const set = () => ba.style.setProperty('--p', r.value + '%'); r.addEventListener('input', set); set(); });
+</script>
+</body>
+</html>
